@@ -1,0 +1,39 @@
+<br><br>
+<h4>Edit Awesome</h4>
+<hr>
+<form (ngSubmit)="update()" [formGroup]="editForm">
+  <div class="form-group">
+    <label >Awesome Tag</label>
+    <input formControlName="tag" type="text" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div *ngIf="tag.invalid && (tag.touched || tag.dirty)" class="alert alert-danger">
+    <div *ngIf="tag.errors.required">
+      Tag không được để trống !
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label >Awesome Url</label>
+    <input formControlName="url" type="text" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div *ngIf="url.invalid && (url.touched || url.dirty)" class="alert alert-danger">
+    <div *ngIf="url.errors.required">
+      Url không được để trống !
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Awesome Descriptions</label>
+    <textarea formControlName="descriptions" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <div *ngIf="descriptions.invalid && (descriptions.touched || descriptions.dirty)" class="alert alert-danger">
+    <div *ngIf="descriptions.errors.required">
+      Mô tả không được để trống !
+    </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-info">Update Awesome</button>
+  <button  (click)="list()" class="btn btn-secondary">Cancel</button>
+  <a (click)="deleteAwesome()" class="btn btn-danger">Delete</a>
+</form>

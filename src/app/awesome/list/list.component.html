@@ -1,0 +1,27 @@
+<br><br><br>
+<a routerLink="create" class="btn btn-info">Add Awesome</a>
+<br><br>
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Tag</th>
+    <th scope="col">Url</th>
+    <th scope="col">Descriptions</th>
+    <th scope="col" colspan="2">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let list of listAwesome, let i = index">
+    <th scope="row">{{i + 1}}</th>
+    <td> <a [routerLink]="['show',list.id]">{{list.tag}}</a></td>
+
+    <td><a href="{{list.url}}">{{list.url}}</a></td>
+
+    <td>{{list.descriptions}}</td>
+    <td><a [routerLink]="[list.id]" class="btn btn-success">Edit</a></td>
+    <td><a (click)="deleteAwesome(i)" class="btn btn-danger">Delete</a></td>
+  </tr>
+
+  </tbody>
+</table>
